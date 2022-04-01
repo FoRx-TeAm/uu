@@ -8422,7 +8422,7 @@ keyboard.inline_keyboard = {{{text = '‹ Delete Bot ›', url = "https://t.me/R
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/R3J3BOT&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
-photo = "https://t.me/wwTTw/679"
+photo = "https://t.me/wwTTw/685"
 local tt =[[
 Welcome To Source
 ⌁ :[𝖲𝗈U𝗋C𝖾 FoRc](https://t.me/FoRx_TeAm) .
