@@ -8513,7 +8513,7 @@ local NcH = (Redis:get(itsRaumo.."Raumo:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(itsRaumo.."Raumo:CHlink:Bot") or "⌁ :عذراً لاتستطيع استخدام البوت !\n⌁ :عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(itsRaumo..'Raumo:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ 𝖲𝗈UrC𝖾 MeLaNo ›', url = 't.me/FoRx_TeAm'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/FoRx_TeAm'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'⌁ :اوامر الحمايه اتبع مايلي \n...— — — — — — — — —\n⌁ :قفل ، فتح ← الامر \n⌁ :تستطيع قفل حمايه كما يلي ...\n⌁ :← { بالتقيد ، بالطرد ، بالكتم }\n— — — — — — — — —\n⌁ :الروابط\n⌁ :المعرف\n⌁ :التاك\n⌁ :الشارحه\n⌁ :التعديل\n⌁ :التثبيت\n⌁ :المتحركه\n⌁ :الملفات\n⌁ :الصور\n— — — — — — — — —\n⌁ :الماركداون\n⌁ :البوتات\n⌁ :التكرار\n⌁ :الكلايش\n⌁ :السيلفي\n⌁ :الملصقات\n⌁ :الفيديو\n⌁ :الانلاين\n⌁ :الدردشه\n— — — — — — — — —\n⌁ :التوجيه\n⌁ :الاغاني\n⌁ :الصوت\n⌁ :الجهات\n︙الاشعارات',"md",false, false, false, false, reply_markup)
 elseif text == 'م2' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n⌁ :هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -8523,7 +8523,7 @@ local NcH = (Redis:get(itsRaumo.."Raumo:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(itsRaumo.."Raumo:CHlink:Bot") or "⌁ :عذراً لاتستطيع استخدام البوت !\n⌁ :عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(itsRaumo..'Raumo:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ 𝖲𝗈UrC𝖾 MeLaNo ›', url = 't.me/FoRx_TeAm'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/FoRx_TeAm'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'⌁ :اوامر ادمنية المجموعه ...\n— — — — — — — — —\n⌁ :رفع، تنزيل ← مميز\n⌁ :تاك للكل ، عدد الكروب\n⌁ :كتم ، حظر ، طرد ، تقيد\n⌁ :الغاء كتم ، الغاء حظر ، الغاء تقيد\n⌁ :منع ، الغاء منع \n— — — — — — — — —\n⌁ :عرض القوائم كما يلي ...\n— — — — — — — — —\n⌁ :المكتومين\n⌁ :المميزين \n⌁ :قائمه المنع\n— — — — — — — — —\n⌁ :تثبيت ، الغاء تثبيت\n⌁ :الرابط ، الاعدادات\n⌁ :الترحيب ، القوانين\n⌁ :تفعيل ، تعطيل ← الترحيب\n⌁ :تفعيل ، تعطيل ← الرابط\n⌁ :جهاتي ،ايدي ، رسائلي\n⌁ :سحكاتي ، مجوهراتي\n⌁ :كشف البوتات\n— — — — — — — — —\n⌁ :وضع ، ضع ← الاوامر التاليه \n⌁ :اسم ، رابط ، صوره\n⌁ :قوانين ، وصف ، ترحيب\n— — — — — — — — —\n⌁ :حذف ، مسح ← الاوامر التاليه\n⌁ :قائمه المنع ، المحظورين \n⌁ :المميزين ، المكتومين ، القوانين\n⌁ :المطرودين ، البوتات ، الصوره\n⌁ :الرابط',"md",false, false, false, false, reply_markup)
 elseif text == 'م3' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n⌁ :هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -8533,7 +8533,7 @@ local NcH = (Redis:get(itsRaumo.."Raumo:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(itsRaumo.."Raumo:CHlink:Bot") or "⌁ :عذراً لاتستطيع استخدام البوت !\n⌁ :عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(itsRaumo..'Raumo:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ 𝖲𝗈UrC𝖾 MeLaNo ›', url = 't.me/FoRx_TeAm'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/FoRx_TeAm'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'\n⌁ :اوامر المدراء ↫ ⤈\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁ :فحص البوت\n⌁ :ضع اسم + الاسم\n⌁ :اضف • حذف ↫ رد\n⌁ :ردود المدير\n⌁ :حذف ردود المدير\n⌁ :اضف • حذف ↫ رد متعدد\n⌁ :حذف رد من متعدد\n⌁ :الردود المتعدده\n⌁ :حذف الردود المتعدده\n⌁ :حذف قوائم المنع\n⌁ :منع ↫ بالرد على ( ملصق • صوره • متحركه )\n⌁ :حذف قائمه منع + ↫ ⤈( الصور • المتحركات • الملصقات )\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁ :تنزيل الكل\n⌁ :رفع ادمن • تنزيل ادمن\n⌁ :الادمنيه • حذف الادمنيه\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁ :تثبيت\n⌁ :الغاء التثبيت\n⌁ :اعاده التثبيت\n⌁ :الغاء تثبيت الكل\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁ :تغير رد + اسم الرتبه + النص ↫ ⤈\n⌁ :المطور • منشئ الاساسي\n⌁ :المنشئ • المدير • الادمن\n⌁ :المميز • المنظف • العضو\n⌁ :حذف ردود الرتب\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁ :تغيير الايدي ↫ لتغيير الكليشه\n⌁ :تعيين الايدي ↫ لتعيين الكليشه\n⌁ :حذف الايدي ↫ لحذف الكليشه\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁ :تفعيل • تعطيل + الامر ↫ ⤈\n⌁ :اطردني • الايدي بالصوره • الابراج\n⌁ :معاني الاسماء • اوامر النسب • انطق\n⌁ :الايدي • تحويل الصيغ • اوامر التحشيش\n⌁ :ردود المدير • ردود المطور • التحقق\n⌁ :ضافني • حساب العمر • الزخرفه\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉',"md",false, false, false, false, reply_markup)
 elseif text == 'م4' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n⌁ :هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -8543,7 +8543,7 @@ local NcH = (Redis:get(itsRaumo.."Raumo:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(itsRaumo.."Raumo:CHlink:Bot") or "⌁ :عذراً لاتستطيع استخدام البوت !\n⌁ :عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(itsRaumo..'Raumo:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ 𝖲𝗈UrC𝖾 MeLaNo ›', url = 't.me/FoRx_TeAm'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/FoRx_TeAm'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'⌁ :اوامر المنشئ الاساسي\n— — — — — — — — —\n⌁ :رفع ، تنزيل ←{ منشئ }\n⌁ :المنشئين ، مسح المنشئين\n— — — — — — — — —\n⌁ :اوامر المنشئ المجموعه\n— — — — — — — — —\n⌁ :رفع ، تنزيل ← { مدير }\n⌁ :المدراء ، مسح المدراء\n⌁ :اضف رسائل ← { بالرد او الايدي }\n⌁ :اضف مجوهرات ← { بالرد او الايدي }\n⌁ :اضف ، حذف ← { امر }\n⌁ :الاوامر المضافه ، مسح الاوامر المضافه',"md",false, false, false, false, reply_markup)
 elseif text == 'م5' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n⌁ :هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -8553,7 +8553,7 @@ local NcH = (Redis:get(itsRaumo.."Raumo:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(itsRaumo.."Raumo:CHlink:Bot") or "⌁ :عذراً لاتستطيع استخدام البوت !\n⌁ :عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(itsRaumo..'Raumo:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ 𝖲𝗈UrC𝖾 MeLaNo ›', url = 't.me/FoRx_TeAm'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/FoRx_TeAm'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'⌁ :اوامر المطور الاساسي  \n— — — — — — — — —\n⌁ :حظر عام ، الغاء العام\n⌁ :اضف ، حذف ← { مطور } \n⌁ :قائمه العام ، مسح قائمه العام\n⌁ :المطورين ، مسح المطورين\n— — — — — — — — —\n⌁ :اضف ، حذف ← { رد للكل }\n⌁ :وضع ، حذف ← { كليشه المطور } \n⌁ :مسح ردود المطور ، ردود المطور \n⌁ :تحديث ،  تحديث السورس \n⌁ :تعين عدد الاعضاء ← { العدد }\n— — — — — — — — —\n⌁ :تفعيل ، تعطيل ← { الاوامر التاليه ↓}\n⌁ :البوت الخدمي ، المغادرة ، الاذاعه\n⌁ :ملف ← { اسم الملف }\n— — — — — — — — —\n⌁ :مسح جميع الملفات \n⌁ :المتجر ، الملفات\n— — — — — — — — —\n⌁ :اوامر المطور في البوت\n— — — — — — — — —\n⌁ :تفعيل ، تعطيل ، الاحصائيات\n⌁ :رفع، تنزيل ← { منشئ اساسي }\n⌁ :مسح الاساسين ، المنشئين الاساسين \n⌁ :غادر ، غادر ← { والايدي }\n⌁ :اذاعه ، اذاعه بالتوجيه ، اذاعه بالتثبيت\n⌁ :اذاعه خاص ، اذاعه خاص بالتوجيه',"md",false, false, false, false, reply_markup)
 elseif text == 'الالعاب' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n⌁ :هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -8565,7 +8565,7 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, u
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⌁ :العاب السورس ', data = IdUser..'/help6'},},{{text = '⌁ :العاب المتطورة ', data = IdUser..'/degm'}, },{{text = '- اخفاء الامر ', data =IdUser..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈UrC𝖾 MeLaNo ›', url = 't.me/G0BBBI'}, },}}
+data = {{{text = '⌁ :العاب السورس ', data = IdUser..'/help6'},},{{text = '⌁ :العاب المتطورة ', data = IdUser..'/degm'}, },{{text = '- اخفاء الامر ', data =IdUser..'/'.. 'delAmr'}},{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/G0BBBI'}, },}}
 return LuaTele.sendText(msg_chat_id,msg_id,'⌁ :عليك استخدام اوامر التحكم بالقوائم',"md",false, false, false, false, reply_markup)end
 if text == 'تحديث' or text == 'تحديث السورس' then
 if not msg.DevelopersAS then 
@@ -8601,15 +8601,15 @@ return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, fal
 Redis:del(itsRaumo.."Raumo:Name:Bot") 
 return LuaTele.sendText(msg_chat_id,msg_id,"⌁ :تم حذف اسم البوت ","md",true)   
 end
-if text == (Redis:get(itsRaumo.."Raumo:Name:Bot") or "ميلانو") then
-local NamesBot = (Redis:get(itsRaumo.."Raumo:Name:Bot") or "ميلانو")
+if text == (Redis:get(itsRaumo.."Raumo:Name:Bot") or "فوكس") then
+local NamesBot = (Redis:get(itsRaumo.."Raumo:Name:Bot") or "فوكس")
 local NameBots = {
 "عمر "..NamesBot.. " شتريد ؟",
 "وياك القميل "..NamesBot.. "",
 }
 return LuaTele.sendText(msg_chat_id,msg_id, NameBots[math.random(#NameBots)],"md",true)  end
 if text == "بوت" then
-local NamesBot = (Redis:get(itsRaumo.."Raumo:Name:Bot") or "ميلانو")
+local NamesBot = (Redis:get(itsRaumo.."Raumo:Name:Bot") or "فوكس")
 local BotName = {
 "اسمي القميل "..NamesBot,
 "وياك القميل "..NamesBot.. "",
@@ -9927,7 +9927,7 @@ if text == '‹ تحديث السورس ›' then
 if not msg.DevelopersAS then 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n⌁ :هذا الامر للمطور الاساسي واعلى فقط',"md",true)  end
 os.execute('rm -rf Raumo.lua')
-download('https://raw.githubusercontent.com/REKSSTEAM/Melano/master/Raumo.lua','Raumo.lua')
+download('https://raw.githubusercontent.com/FoRx-TeAm/uu/master/Raumo.lua','Raumo.lua')
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*⌁ :تم تحديث السورس* ',"md",true)  end
 if text == '‹ تحديث الملفات ›' then
@@ -9954,7 +9954,7 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ �
 return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(itsRaumo.."Raumo:Start:Bot"),"md",false, false, false, false, reply_markup) end
 else
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹  السورس  ›',type = 'text'},{text = '‹  اسم البوت  ›', type = 'text'},},{{text = '‹  المطورين  ›',type = 'text'},{text = '‹  الاحصائيات  ›',type = 'text'},},{{text = '‹  الاذاعة  ›',type = 'text'},{text = '‹  العام  ›', type = 'text'},},{{text = '‹  الاشتراك الاجباري  ›',type = 'text'},{text = '‹  التفعيل والتعطيل  ›',type = 'text'},},{{text = '‹  ردود الخاص  ›',type = 'text'},},}}
-return LuaTele.sendText(msg_chat_id,msg_id,'⌁ :اهلاً بك عزيزي ‹ المطور ›\n⌁ :اليك الازرار الخاصة بسورس ميلانو', 'md', false, false, false, false, reply_markup) end end
+return LuaTele.sendText(msg_chat_id,msg_id,'⌁ :اهلاً بك عزيزي ‹ المطور ›\n⌁ :اليك الازرار الخاصة بسورس فوكس', 'md', false, false, false, false, reply_markup) end end
 if text == '‹  ردود الخاص  ›' and msg.DevelopersAS then
 Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
 local OR33 = '⌁ :اهلا بك في قسم ‹ ردود الخاص ›\n⌁ :اضغط على الامر الذي تريد تنفيذه'
@@ -10721,7 +10721,7 @@ local UserId = Text:match('(%d+)/UpdateSo')
 if tonumber(IdUser) == tonumber(UserId) then 
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ رجوع ›', data =UserId..'/'.. 'UpdateBack'},},}}
 os.execute('rm -rf Raumo.lua')
-download('https://raw.githubusercontent.com/REKSSTEAM/Melano/master/Raumo.lua','Raumo.lua')
+download('https://raw.githubusercontent.com/FoRx-TeAm/uu/master/Raumo.lua','Raumo.lua')
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
 return LuaTele.editMessageText(ChatId,Msg_id, '*⌁ :تم تحديث السورس*', 'md',true, false, reply_markup) end end
 --
@@ -11526,14 +11526,14 @@ data = {
 {{text = 'سبيس ترافلر', url="https://t.me/gamee?game=SpaceTraveler"},{text = 'RedAndBlue', url="https://t.me/gamee?game=RedAndBlue"}},  
 {{text = 'سكوداهوكي1 ', url="https://t.me/gamee?game=SkodaHockey1"},{text = 'SummerLove', url="https://t.me/gamee?game=SummerLove"}},  
 {{text = 'سمارتوبشارك', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
-{{text = '‹ 𝖲𝗈UrC𝖾 MeLaNo ›', url = 't.me/FoRx_TeAm'}},
+{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/FoRx_TeAm'}},
 {
 {text = '- اخفاء الامر ', data =IdUser..'/'.. 'delAmr'}
 },
 }
 }
 local TextHelp = [[*
-• مرحبا بك في الالعاب الاحترافيه الخاص بسورس ميلانو 
+• مرحبا بك في الالعاب الاحترافيه الخاص بسورس فوكس 
 • اختر اللعبه ثم اختار المحادثة التي تريد اللعب بها
 *]]
 LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)end
