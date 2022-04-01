@@ -4618,7 +4618,7 @@ local TestText = "  ❲ Owner Groups ❳\n— — — — — — — — —\n 
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = "❲"..UserInfo.first_name.."❳", url = "tg://user?id="..Sudo_Id..""}
+{text = "❲"..UserInfo.first_name.."❳", url = "https://t.me/"..UserSudo..""}
 },
 }
 local msg_id = msg.id/2097152/0.5 
@@ -8368,7 +8368,7 @@ local TestText = "  ❲ Developers Source ❳\n— — — — — — — — �
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = "❲"..UserInfo.first_name.."❳", url = "tg://user?id="..Sudo_Id..""}
+{text = "❲"..UserInfo.first_name.."❳", url = "https://t.me/"..UserSudo..""}
 },
 }
 local msg_id = msg.id/2097152/0.5 
