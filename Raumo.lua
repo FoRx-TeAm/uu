@@ -8601,15 +8601,15 @@ return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, fal
 Redis:del(itsRaumo.."Raumo:Name:Bot") 
 return LuaTele.sendText(msg_chat_id,msg_id,"⌁ :تم حذف اسم البوت ","md",true)   
 end
-if text == (Redis:get(itsRaumo.."Raumo:Name:Bot") or "فوكس") then
-local NamesBot = (Redis:get(itsRaumo.."Raumo:Name:Bot") or "فوكس")
+if text == (Redis:get(itsRaumo.."Raumo:Name:Bot") or "فروك") then
+local NamesBot = (Redis:get(itsRaumo.."Raumo:Name:Bot") or "فروك")
 local NameBots = {
 "عمر "..NamesBot.. " شتريد ؟",
 "وياك القميل "..NamesBot.. "",
 }
 return LuaTele.sendText(msg_chat_id,msg_id, NameBots[math.random(#NameBots)],"md",true)  end
 if text == "بوت" then
-local NamesBot = (Redis:get(itsRaumo.."Raumo:Name:Bot") or "فوكس")
+local NamesBot = (Redis:get(itsRaumo.."Raumo:Name:Bot") or "فروك")
 local BotName = {
 "اسمي القميل "..NamesBot,
 "وياك القميل "..NamesBot.. "",
@@ -9954,7 +9954,7 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ �
 return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(itsRaumo.."Raumo:Start:Bot"),"md",false, false, false, false, reply_markup) end
 else
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹  السورس  ›',type = 'text'},{text = '‹  اسم البوت  ›', type = 'text'},},{{text = '‹  المطورين  ›',type = 'text'},{text = '‹  الاحصائيات  ›',type = 'text'},},{{text = '‹  الاذاعة  ›',type = 'text'},{text = '‹  العام  ›', type = 'text'},},{{text = '‹  الاشتراك الاجباري  ›',type = 'text'},{text = '‹  التفعيل والتعطيل  ›',type = 'text'},},{{text = '‹  ردود الخاص  ›',type = 'text'},},}}
-return LuaTele.sendText(msg_chat_id,msg_id,'⌁ :اهلاً بك عزيزي ‹ المطور ›\n⌁ :اليك الازرار الخاصة بسورس فوكس', 'md', false, false, false, false, reply_markup) end end
+return LuaTele.sendText(msg_chat_id,msg_id,'⌁ :اهلاً بك عزيزي ‹ المطور ›\n⌁ :اليك الازرار الخاصة بسورس فروك', 'md', false, false, false, false, reply_markup) end end
 if text == '‹  ردود الخاص  ›' and msg.DevelopersAS then
 Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
 local OR33 = '⌁ :اهلا بك في قسم ‹ ردود الخاص ›\n⌁ :اضغط على الامر الذي تريد تنفيذه'
@@ -11533,7 +11533,7 @@ data = {
 }
 }
 local TextHelp = [[*
-• مرحبا بك في الالعاب الاحترافيه الخاص بسورس فوكس 
+• مرحبا بك في الالعاب الاحترافيه الخاص بسورس فروك 
 • اختر اللعبه ثم اختار المحادثة التي تريد اللعب بها
 *]]
 LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)end
