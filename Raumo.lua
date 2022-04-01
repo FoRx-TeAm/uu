@@ -4618,7 +4618,7 @@ local TestText = "  ❲ Owner Groups ❳\n— — — — — — — — —\n 
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = "❲"..UserInfo.first_name.."❳", url = "https://t.me/"..ban.username..""}
+{text = "❲"..UserInfo.first_name.."❳", url = "https://t.me/"..UserInfo.username..""}
 },
 }
 local msg_id = msg.id/2097152/0.5 
