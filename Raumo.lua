@@ -1385,7 +1385,7 @@ if Channel then return LuaTele.sendText(msg_chat_id,msg_id,"\n⌁ : الاشتر
 else
 return LuaTele.sendText(msg_chat_id,msg_id,"\n⌁ : لا توجد قناة في الاشتراك ارسل تغيير الاشتراك الاجباري","md",true) end end
 if text == '‹ قناة السورس ›' or text == 'قناه السورس' or text == 'قناة السورس' then
-photo = "https://t.me/lMlMMM/6"
+photo = "https://t.me/FoRx_TeAm/4"
 local tt =[[
 ⌁ : [Sourec F᥆Ꭱx](https://t.me/wwttw) .
 ]]
@@ -8430,7 +8430,7 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❲Source Channel❳', url = "https://t.me/wwttw"},{text = '❲Exp Source❳', url = "https://t.me/wwttw"}
+{text = '❲Source Channel❳', url = "https://t.me/wwttw"},{text = '❲Exp Source❳', url = "https://t.me/FoRx_TeAm"}
 },
 {
 {text = '❲Developer❳', url = "https://t.me/NNlNNN"}
