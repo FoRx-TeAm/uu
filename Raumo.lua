@@ -8368,7 +8368,7 @@ local TestText = "  ❲ Developers Source ❳\n— — — — — — — — �
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
-{text = '❲Sourec F᥆Ꭱx❳', url = "https://t.me/wwttw"}
+{text = '❲..UserInfo.first_name..❳', url = "tg://user?id="..Sudo_Id..""}
 },
 }
 local msg_id = msg.id/2097152/0.5 
