@@ -492,13 +492,43 @@ if Redis:get(itsRaumo.."Raumo:Lock:Join"..msg.chat_id) == "kick" then
 LuaTele.setChatMemberStatus(msg.chat_id,msg.sender.user_id,'banned',0)
 LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id})
 return false end end
+
+
+if msg.content.luatele == "messageChatJoinByLink" then
+if Redis:get(itsRaumo.."Raumo:Lock:Join"..msg.chat_id) == "kick" then
+LuaTele.setChatMemberStatus(msg.chat_id,msg.sender.user_id,'banned',0)
+LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id})
+return false
+end
+end
+
 if msg.content.luatele == "messageChatAddMembers" then -- اضافه اشخاص
 print('This is Add Membeers ')
-Redis:incr(itsRaumo.."Raumo:Num:Add:Memp"..msg_chat_id..":"..msg.sender.user_id) 
+Redis:incr(itsRaumo.."Raumo:Raumo:Num:Add:Memp"..msg_chat_id..":"..msg.sender.user_id) 
 local AddMembrs = Redis:get(itsRaumo.."Raumo:Lock:AddMempar"..msg_chat_id) 
 local Lock_Bots = Redis:get(itsRaumo.."Raumo:Lock:Bot:kick"..msg_chat_id)
 for k,v in pairs(msg.content.member_user_ids) do
 local Info_User = LuaTele.getUser(v) 
+print(v)
+if v == tonumber(itsRaumo) then
+local N = (Redis:get(itsRaumo.."Raumo:Name:Bot") or "كادي")
+photo = LuaTele.getUserProfilePhotos(itsRaumo)
+local bot = '᥀︙  انا بوت اسمي '..N..'\n᥀︙  وظيفتي حمايه المجموعة من السبام والتفليش الخ....\n᥀︙  لتفعيل البوت قم اضافته للمجموعتك وقم برفعه مشرف واكتب تفعيل\n'
+if photo.total_count > 0 then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '᥀︙ اضفني في مجموعتك', url = 't.me/'..UserBot..'?startgroup=new'}, 
+},
+{
+{text = '᥀︙السورس',url="https://t.me/wwttw"},{text = '᥀︙التنصيب بوت ',url="https://t.me/NNlNNN"}, 
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(bot).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+
 if Info_User.type.luatele == "userTypeBot" then
 if Lock_Bots == "del" and not msg.Distinguished then
 LuaTele.setChatMemberStatus(msg.chat_id,v,'banned',0)
