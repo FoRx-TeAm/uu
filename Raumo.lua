@@ -7558,19 +7558,21 @@ local SetAdmin = LuaTele.setChatMemberStatus(msg.chat_id,UserId_Info.id,'adminis
 if SetAdmin.code == 400 then return LuaTele.sendText(msg_chat_id,msg_id,"\n*⌁ : لست انا من قام برفعه *","md",true)  end
 if SetAdmin.code == 3 then return LuaTele.sendText(msg_chat_id,msg_id,"\n*⌁ : لا يمكنني تنزيله ليس لدي صلاحيات *","md",true)  end
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"⌁ : تم تنزيله من المشرفين ").Reply,"md",true)  end 
-if text == 'رسائلي' then
-local OR33 = (Redis:get(itsRaumo..'Raumo:Num:Message:User'..msg.chat_id..':'..msg.sender.user_id) or 0)
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ مسح رسائلي : '..OR33..' ›', data = msg.sender.user_id..'/MMsgDel'},},}}
-LuaTele.sendText(msg_chat_id,msg_id,'⌁ : عدد رسائلك هنا ↫ ‹ *'..OR33..'* ›',"md",false ,false, false,false,reply_markup)  end
-if text == 'سحكاتي' or text == 'تعديلاتي' then
-local OR33 = (Redis:get(itsRaumo..'Raumo:Num:Message:Edit'..msg.chat_id..msg.sender.user_id) or 0)
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ مسح سحكاتي : '..OR33..' ›', data = msg.sender.user_id..'/MsgDell'},},}}
-LuaTele.sendText(msg_chat_id,msg_id,'⌁ : عدد التعديلات هنا ↫ ‹ *'..OR33..'* ›',"md",false, false, false,false, reply_markup)  end
-if text == 'مسح جهاتي' then
-Redis:del(itsRaumo..'Raumo:Num:Add:Memp'..msg.chat_id..msg.sender.user_id)
-LuaTele.sendText(msg_chat_id,msg_id,'⌁ : تم مسح جميع جهاتك المضافه ',"md",true)  
+if text == 'مسح رسائلي' then
+Redis:del(itsRaumo..'Raumo:Num:Message:User'..msg.chat_id..':'..msg.sender.user_id)
+LuaTele.sendText(msg_chat_id,msg_id,'᥀︙تم مسح جميع رسائلك ',"md",true)  
+elseif text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' then
+Redis:del(itsRaumo..'Raumo:Num:Message:Edit'..msg.chat_id..':'..msg.sender.user_id)
+LuaTele.sendText(msg_chat_id,msg_id,'᥀︙تم مسح جميع تعديلاتك ',"md",true)  
+elseif text == 'مسح جهاتي' then
+Redis:del(itsRaumo..'Raumo:Num:Add:Memp'..msg.chat_id..':'..msg.sender.user_id)
+LuaTele.sendText(msg_chat_id,msg_id,'᥀︙تم مسح جميع جهاتك المضافه ',"md",true)  
+elseif text == 'رسائلي' then
+LuaTele.sendText(msg_chat_id,msg_id,'᥀︙عدد رسائلك هنا *~ '..(Redis:get(itsRaumo..'Raumo:Num:Message:User'..msg.chat_id..':'..msg.sender.user_id) or 1)..'*',"md",true)  
+elseif text == 'سحكاتي' or text == 'تعديلاتي' then
+LuaTele.sendText(msg_chat_id,msg_id,'᥀︙عدد التعديلات هنا *~ '..(Redis:get(itsRaumo..'Raumo:Num:Message:Edit'..msg.chat_id..msg.sender.user_id) or 0)..'*',"md",true)  
 elseif text == 'جهاتي' then
-LuaTele.sendText(msg_chat_id,msg_id,'⌁ : عدد جهاتك المضافه هنا ↫ ‹ *'..(Redis:get(itsRaumo.."Raumo:Num:Add:Memp"..msg.chat_id..":"..msg.sender.user_id) or 0)..'* ›',"md",true)  
+LuaTele.sendText(msg_chat_id,msg_id,'᥀︙عدد جهاتك المضافه هنا *~ '..(Redis:get(itsRaumo.."Raumo:Num:Add:Memp"..msg.chat_id..":"..msg.sender.user_id) or 0)..'*',"md",true)  
 elseif text == 'مسح' and msg.reply_to_message_id ~= 0 and msg.Addictive then
 if ChannelJoin(msg) == false then
 local Get_Chat = LuaTele.getChat(Redis:get(itsRaumo..'Raumo:ChanneliD:Join'))
