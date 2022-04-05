@@ -4720,10 +4720,48 @@ local TextMsg = text:match("^تفعيل (.*)$")
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*᥀︙هاذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
 end
-if ChannelJoin(msg) == false then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/'..Redis:get(itsRaumo..'Raumo:Channel:Join')}, },}}
-return LuaTele.sendText(msg.chat_id,msg.id,'*\n᥀︙عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
-end
+if TextMsg == 'اوامر التسليه' then
+Redis:set(itsRaumo.."Raumo:Status:distraction10"..msg_chat_id,true) 
+Redis:set(itsRaumo.."Raumo:Status:distraction9"..msg_chat_id,true) 
+Redis:set(itsRaumo.."Raumo:Status:distraction8"..msg_chat_id,true) 
+Redis:set(itsRaumo.."Raumo:Status:distraction7"..msg_chat_id,true) 
+Redis:set(itsRaumo.."Raumo:Status:distraction6"..msg_chat_id,true) 
+Redis:set(itsRaumo.."Raumo:Status:distraction5"..msg_chat_id,true) 
+Redis:set(itsRaumo.."Raumo:Status:distraction4"..msg_chat_id,true) 
+Redis:set(itsRaumo.."Raumo:Status:distraction3"..msg_chat_id,true) 
+Redis:set(itsRaumo.."Raumo:Status:distraction2"..msg_chat_id,true) 
+Redis:set(itsRaumo.."Raumo:Status:distraction1"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل اوامر التسليه *").unLock,"md",true) end
+if TextMsg == 'غنيلي' then
+Redis:set(itsRaumo.."Raumo:Status:distraction1"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل امر غنيلي *").unLock,"md",true) end
+if TextMsg == 'متحركه' then
+Redis:set(itsRaumo.."Raumo:Status:distraction2"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل امر متحركه *").unLock,"md",true) end
+if TextMsg == 'شعر' then
+Redis:set(itsRaumo.."Raumo:Status:distraction3"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل امر شعر *").unLock,"md",true) end
+if TextMsg == 'فلم' then
+Redis:set(itsRaumo.."Raumo:Status:distraction4"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل امر شعر *").unLock,"md",true) end
+if TextMsg == 'صوره' then
+Redis:set(itsRaumo.."Raumo:Status:distraction5"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل امر صوره *").unLock,"md",true) end
+if TextMsg == 'اغنيه' then
+Redis:set(itsRaumo.."Raumo:Status:distraction6"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل امر اغنيه *").unLock,"md",true) end
+if TextMsg == 'انمي' then
+Redis:set(itsRaumo.."Raumo:Status:distraction7"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل امر انمي *").unLock,"md",true) end
+if TextMsg == 'ريمكس' then
+Redis:set(itsRaumo.."Raumo:Status:distraction8"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل امر ريمكس *").unLock,"md",true) end
+if TextMsg == 'ميمز' then
+Redis:set(itsRaumo.."Raumo:Status:distraction9"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل امر ميمز *").unLock,"md",true) end
+if TextMsg == 'مسلسل' then
+Redis:set(itsRaumo.."Raumo:Status:distraction10"..msg_chat_id,true) 
+return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,"*᥀︙ تم تفعيل امر مسلسل *").unLock,"md",true) end
 if TextMsg == 'الرابط' then
 Redis:set(itsRaumo.."Raumo:Status:Link"..msg_chat_id,true) 
 return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙تم تفعيل الرابط ","md",true)
@@ -5225,97 +5263,112 @@ end
 end
 end
 if text == "غنيلي" then
-Abs = math.random(2,140); 
-local Text ='*᥀︙تم اختيار الاغنيه لك*'
+if not Redis:get(itsRaumo.."Raumo:Status:distraction1"..msg_chat_id) then return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙ عذراً امر غنيلي معطل","md",true) end 
+Abs = math.random(4,2824); 
+local Text ='᥀︙ تم اختيار المقطع الصوتي لك'
 keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'مره اخره 🔄', callback_data= msg.sender.user_id..'/Re@'}, 
-},
-{
-{text = '❲𝐒𝐎𝐔𝐑𝐂𝐄 𝐌𝐄𝑳𝐀𝐍𝐎 ❳',url="t.me/QQOQQD"}
-},
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Song'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}
+}
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/TEAMSUL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end
+https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/AudiosDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
 if text == "متحركه" then
-Abs = math.random(2,140); 
-local Text ='*᥀︙تم اختيار متحركه لك*'
+if not Redis:get(itsRaumo.."Raumo:Status:distraction2"..msg_chat_id) then return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙ عذراً امر متحركه معطل","md",true) end 
+Abs = math.random(4,1075); 
+local Text ='᥀︙ تم اختيار المتحركه لك'
 keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐌𝐄𝑳𝐀𝐍𝐎 ❳',url="t.me/QQOQQD"}},
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/animation'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}
+}
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/GifDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end
+https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/GifDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
 if text == "شعر" then
-Abs = math.random(2,140); 
-local Text ='*•︙تم اختيار الشعر لك فقط*'
+if not Redis:get(itsRaumo.."Raumo:Status:distraction3"..msg_chat_id) then return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙ عذراً امر شعر معطل","md",true) end 
+Abs = math.random(4,140); 
+local Text ='᥀︙ تم اختيار الشعر لك'
 keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐌𝐄𝑳𝐀𝐍𝐎 ❳',url="t.me/QQOQQD"}},
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/voice'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}
+}
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/shaarshahum/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "ميمز" then
-Abs = math.random(2,140); 
-local Text ='*•︙تم اختيار الميمز لك فقط*'
+if not Redis:get(itsRaumo.."Raumo:Status:distraction9"..msg_chat_id) then return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙ عذراً امر ميمز معطل","md",true) end 
+Abs = math.random(4,1201); 
+local Text ='᥀︙ تم اختيار الميمز لك'
 keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐌𝐄𝑳𝐀𝐍𝐎 ❳',url="t.me/QQOQQD"}},
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Memz'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}
+}
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/remixsource/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/MemzDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "ريمكس" or text == "ريماكس" then 
-Abs = math.random(2,140); 
-local Text ='*᥀︙تم اختيار ريمكس لك*'
+if not Redis:get(itsRaumo.."Raumo:Status:distraction8"..msg_chat_id) then return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙ عذراً امر ريمكس معطل","md",true) end 
+Abs = math.random(4,612); 
+local Text ='᥀︙ تم اختيار ريمكس لك'
 keyboardd = {} 
-keyboardd.inline_keyboard = {
-{
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐌𝐄𝑳𝐀𝐍𝐎 ❳', url = "https://t.me/QQOQQD"}
-},
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Remix'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}
+}
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/remixsource/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/RemixDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
-if text == "فلم" or text == "ريماكس" then 
-Abs = math.random(2,140); 
-local Text ='*᥀︙تم اختيار الفلم لك*'
+if text == "فلم" or text == "فيلم" then 
+if not Redis:get(itsRaumo.."Raumo:Status:distraction4"..msg_chat_id) then return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙ عذراً امر فلم معطل","md",true) end 
+Abs = math.random(4,125); 
+local Text ='᥀︙ تم اختيار الفلم لك'
 keyboardd = {} 
-keyboardd.inline_keyboard = {
-{
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐌𝐄𝑳𝐀𝐍𝐎 ❳', url = "https://t.me/QQOQQD"}
-},
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Movies'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}
+}
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/MoviesDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "انمي" or text == "انميي" then 
-Abs = math.random(2,140); 
-local Text ='*᥀︙تم اختيار انمي لك*'
+if not Redis:get(itsRaumo.."Raumo:Status:distraction7"..msg_chat_id) then return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙ عذراً امر انمي معطل","md",true) end 
+Abs = math.random(4,1002); 
+local Text ='᥀︙ تم اختيار الانمي لك'
 keyboardd = {} 
-keyboardd.inline_keyboard = {
-{
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐌𝐄𝑳𝐀𝐍𝐎 ❳', url = "https://t.me/QQOQQD"}
-},
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Anime'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}
+}
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/AnimeDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
-if text == "صوره" or text == "صورة" then 
-Abs = math.random(2,140); 
-local Text ='*᥀︙تم اختيار صوره الك*'
+if text == "اغنيه" or text == "اغنية" then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction6"..msg_chat_id) then return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙ عذراً امر اغنيه معطل","md",true) end 
+Abs = math.random(4,1167); 
+local Text ='᥀︙ تم اختيار الاغنيه لك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Mp'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}
+}
+}
+local msg_id = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendAudio?chat_id=' .. msg.chat_id .. '&audio=https://t.me/DavidMp3/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if text == "صوره" or text == "صورة" then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction5"..msg_chat_id) then return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙ عذراً امر صوره معطل","md",true) end 
+Abs = math.random(4,1171); 
+local Text ='᥀︙ تم اختيار الصوره لك'
 keyboardd = {} 
-keyboardd.inline_keyboard = {
-{
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐌𝐄𝑳𝐀𝐍𝐎 ❳', url = "https://t.me/QQOQQD"}
-},
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Photos'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}
+}
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/PhotosDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if text == "مسلسل" then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction10"..msg_chat_id) then return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙ عذراً امر مسلسل معطل","md",true) end 
+Abs = math.random(4,54); 
+local Text ='᥀︙ تم اختيار المسلسل لك'
+keyboardd = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Series'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}
+}
+}
+local msg_id = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/SeriesDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == 'تمام' or text == 'تمامو' then
 return LuaTele.sendText(msg_chat_id,msg_id,'*تـدوم عمࢪيي💘 ️*',"md",false, false, false, false, reply_markup)
@@ -10386,6 +10439,17 @@ text = "᥀︙لا توجد ردود للمطور"
 end
 return LuaTele.sendText(msg_chat_id,msg_id,"["..text.."]","md",true)  
 end
+if text == ("اوامر التسليه") then 
+if ChannelJoin(msg) == false then
+local Get_Chat = LuaTele.getChat(Redis:get(itsRaumo..'Raumo:ChanneliD:Join'))
+local NcH = (Redis:get(itsRaumo.."Raumo:CH:Bot") or Get_Chat.title)
+local NcHlink = (Redis:get(itsRaumo.."Raumo:CHlink:Bot") or "᥀︙ عذراً لاتستطيع استخدام البوت !\n᥀︙ عليك الاشتراك في القناة اولاً :")
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(itsRaumo..'Raumo:Channel:Join')},},}}
+return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
+local R = Redis:scard(itsRaumo.."Raumo:List:Rd:Sudo")
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ غنيلي ›', data = msg.sender.user_id..'/Song'},},{{text = '‹ شعر ›', data = msg.sender.user_id..'/voice'},{text = '‹ اغنيه ›', data = msg.sender.user_id..'/Mp'},},{{text = '‹ ميمز ›', data = msg.sender.user_id..'/Memz'},{text = '‹ ريمكس ›', data = msg.sender.user_id..'/Remix'},},{{text = '‹ انمي ›', data = msg.sender.user_id..'/Anime'},{text = '‹ صوره ›', data = msg.sender.user_id..'/Photos'},},{{text = '‹ مسلسل ›', data = msg.sender.user_id..'/Series'},{text = '‹ فلم ›', data = msg.sender.user_id..'/Movies'},},{{text = '‹ متحركه ›', data = msg.sender.user_id..'/animation'},},{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/wwttw'},},}}
+return LuaTele.sendText(msg_chat_id, msg_id, "᥀︙ يمكنك اختيار أحد اوامر التسليه ↫ ⤈", 'md', false, false, false, false, reply_markup) end
+-- Raumo --
 if text == "اضف رد للكل" then 
 if not msg.ControllerBot then 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*᥀︙هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
@@ -13215,25 +13279,116 @@ Redis:set(itsRaumo.."Raumo:Set:Rd"..IdUser..":"..ChatId,true)
 LuaTele.editMessageText(ChatId,Msg_id,"᥀︙ارسل لي الرد الان", 'md', true)
 end
 end
-if Text and Text:match('(%d+)/Re@') then
-local UserId = Text:match('(%d+)/Re@')
+if Text and Text:match('(%d+)/Song') then
+local UserId = Text:match('(%d+)/Song')
 if tonumber(IdUser) == tonumber(UserId) then
-Abs = math.random(2,140); 
-local Text ='*᥀︙تم اختيار الاغنيه لك*'
-local msg_id = Msg_id/2097152/0.5
+if not Redis:get(itsRaumo.."Raumo:Status:distraction1"..data.chat_id) then return LuaTele.answerCallbackQuery(data.id,"᥀︙ عذراً امر غنيلي معطل",true) end 
+Abs = math.random(4,2824); 
+local Text ='᥀︙ تم اختيار المقطع الصوتي لك'
 keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = ': مره اخرى 🔃.', callback_data = IdUser..'/Re@'},
-},
-{
-{text = '❲ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐌𝐄𝑳𝐀𝐍𝐎 ❳',url="t.me/QQOQQD"}
-},
-}
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ChatId .. '&voice=https://t.me/TEAMSUL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
-end
-end
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Song'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ChatId .. '&voice=https://t.me/AudiosDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
+--
+elseif Text and Text:match('(%d+)/animation') then
+local UserId = Text:match('(%d+)/animation')
+if tonumber(IdUser) == tonumber(UserId) then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction2"..data.chat_id) then return LuaTele.answerCallbackQuery(data.id,"᥀︙ عذراً امر متحركه معطل",true) end 
+Abs = math.random(4,1075); 
+local Text ='᥀︙ تم اختيار المتحركه لك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'animation'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. ChatId .. '&animation=https://t.me/GifDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
+--
+elseif Text and Text:match('(%d+)/voice') then
+local UserId = Text:match('(%d+)/voice')
+if tonumber(IdUser) == tonumber(UserId) then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction3"..data.chat_id) then return LuaTele.answerCallbackQuery(data.id,"᥀︙ عذراً امر شعر معطل",true) end 
+Abs = math.random(4,140); 
+local Text ='᥀︙ تم اختيار الشعر لك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'voice'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ChatId .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
+--
+elseif Text and Text:match('(%d+)/Memz') then
+local UserId = Text:match('(%d+)/Memz')
+if tonumber(IdUser) == tonumber(UserId) then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction4"..data.chat_id) then return LuaTele.answerCallbackQuery(data.id,"᥀︙ عذراً امر ميمز معطل",true) end 
+Abs = math.random(4,1201); 
+local Text ='᥀︙ تم اختيار الميمز لك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Memz'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ChatId .. '&voice=https://t.me/MemzDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
+--
+elseif Text and Text:match('(%d+)/Remix') then
+local UserId = Text:match('(%d+)/Remix')
+if tonumber(IdUser) == tonumber(UserId) then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction5"..data.chat_id) then return LuaTele.answerCallbackQuery(data.id,"᥀︙ عذراً امر ريمكس معطل",true) end 
+Abs = math.random(4,612); 
+local Text ='᥀︙ تم اختيار الريمكس لك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Remix'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ChatId .. '&voice=https://t.me/RemixDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
+--
+elseif Text and Text:match('(%d+)/Movies') then
+local UserId = Text:match('(%d+)/Movies')
+if tonumber(IdUser) == tonumber(UserId) then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction6"..data.chat_id) then return LuaTele.answerCallbackQuery(data.id,"᥀︙ عذراً امر فلم معطل",true) end 
+Abs = math.random(4,125); 
+local Text ='᥀︙ تم اختيار الفلم لك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Movies'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. ChatId .. '&photo=https://t.me/MoviesDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
+--
+elseif Text and Text:match('(%d+)/Anime') then
+local UserId = Text:match('(%d+)/Anime')
+if tonumber(IdUser) == tonumber(UserId) then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction7"..data.chat_id) then return LuaTele.answerCallbackQuery(data.id,"᥀︙ عذراً امر انمي معطل",true) end 
+Abs = math.random(4,1002); 
+local Text ='᥀︙ تم اختيار الانمي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Anime'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. ChatId .. '&photo=https://t.me/AnimeDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
+--
+elseif Text and Text:match('(%d+)/Mp') then
+local UserId = Text:match('(%d+)/Mp')
+if tonumber(IdUser) == tonumber(UserId) then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction8"..data.chat_id) then return LuaTele.answerCallbackQuery(data.id,"᥀︙ عذراً امر اغنيه معطل",true) end 
+Abs = math.random(4,1167); 
+local Text ='᥀︙ تم اختيار الاغنيه لك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Mp'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendAudio?chat_id=' .. ChatId .. '&audio=https://t.me/DavidMp3/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
+--
+elseif Text and Text:match('(%d+)/Photos') then
+local UserId = Text:match('(%d+)/Photos')
+if tonumber(IdUser) == tonumber(UserId) then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction9"..data.chat_id) then return LuaTele.answerCallbackQuery(data.id,"᥀︙ عذراً امر صوره معطل",true) end 
+Abs = math.random(4,1171); 
+local Text ='᥀︙ تم اختيار الصوره لك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Photos'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}}}
+local msg_id = Msg_id/2097152/0.5
+ https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. ChatId .. '&photo=https://t.me/PhotosDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
+--
+elseif Text and Text:match('(%d+)/Series') then
+local UserId = Text:match('(%d+)/Series')
+if tonumber(IdUser) == tonumber(UserId) then
+if not Redis:get(itsRaumo.."Raumo:Status:distraction10"..data.chat_id) then return LuaTele.answerCallbackQuery(data.id,"᥀︙ عذراً امر مسلسل معطل",true) end 
+Abs = math.random(4,54); 
+local Text ='᥀︙ تم اختيار المسلسل لك'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Series'}},{{text='‹ Sourec F᥆Ꭱx ›',url="t.me/wwttw"}}}
+local msg_id = Msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. ChatId .. '&photo=https://t.me/SeriesDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end end
+-- Raumo
 
 if Text and Text:match('(%d+)/ban0') then
 local UserId = Text:match('(%d+)/ban0')
