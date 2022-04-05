@@ -10881,7 +10881,6 @@ local LLLL = Redis:scard(itsRaumo.."Raumo:Addictive:Group"..msg_chat_id)
 local LLLLL = Redis:scard(itsRaumo.."Raumo:Distinguished:Group"..msg_chat_id)
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ الاساسيين : '..L..' ›', data = msg.sender.user_id..'/TheBasicsRaumo'},},{{text = '‹ المنشئين : '..LL..' ›', data = msg.sender.user_id..'/OriginatorsRaumo'},{text = '‹ المدراء : '..LLL..' ›', data = msg.sender.user_id..'/ManagersRaumo'},},{{text = '‹ الادمنيه : '..LLLL..' ›', data = msg.sender.user_id..'/AddictiveRaumo'},{text = '‹ المميزين : '..LLLLL..' ›', data = msg.sender.user_id..'/DelDistinguishedRaumo'},},{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/wwttw'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'⌔︙اهلا بك يمكنك عمل تاك لي جميع رتب المجموعه',"md",false, false, false, false, reply_markup)
---
 elseif text == 'م1' then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*᥀︙هاذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
@@ -12476,70 +12475,55 @@ return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(itsRaumo.."Raumo:Start:Bot"
 end
 end
 else
-local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true,
-data = {
-{
-{text = 'تفعيل التواصل ⌔',type = 'text'},{text = 'تعطيل التواصل ⌔', type = 'text'},
-},
-{
-{text = 'تفعيل البوت الخدمي ⌔',type = 'text'},{text = 'تعطيل البوت الخدمي ⌔', type = 'text'},
-},
-{
-{text = 'اذاعه للمجموعات ⌔',type = 'text'},{text = 'اذاعه خاص ⌔', type = 'text'},
-},
-{
-{text = 'اذاعه بالتوجيه ⌔',type = 'text'},{text = 'اذاعه بالتوجيه خاص ⌔', type = 'text'},
-},
-{
-{text = 'اذاعه بالتثبيت ⌔',type = 'text'},
-},
-{
-{text = 'المطورين الثانويين ⌔',type = 'text'},{text = 'المطورين ⌔',type = 'text'},{text = 'قائمه العام ⌔', type = 'text'},
-},
-{
-{text = 'مسح المطورين الثانويين ⌔',type = 'text'},{text = 'مسح المطورين ⌔',type = 'text'},{text = 'مسح قائمه العام ⌔', type = 'text'},
-},
-{
-{text = 'تغيير اسم البوت ⌔',type = 'text'},{text = 'حذف اسم البوت ⌔', type = 'text'},
-},
-{
-{text = 'الاشتراك الاجباري ⌔',type = 'text'},{text = 'تغيير الاشتراك الاجباري ⌔',type = 'text'},
-},
-{
-{text = 'تفعيل الاشتراك الاجباري ⌔',type = 'text'},{text = 'تعطيل الاشتراك الاجباري ⌔',type = 'text'},
-},
-{
-{text = 'الاحصائيات ⌔',type = 'text'},{text = 'تغيير المطور الاساسي ⌔',type = 'text'},
-},
-{
-{text = 'تغغير كليشه المطور ⌔',type = 'text'},{text = 'السيرفر ⌔', type = 'text'},
-},
-{
-{text = 'تغيير كليشه ستارت ⌔',type = 'text'},{text = 'حذف كليشه ستارت ⌔', type = 'text'},
-},
-{
-{text = 'تنظيف المجموعات ⌔',type = 'text'},{text = 'تنظيف المشتركين ⌔', type = 'text'},
-},
-{
-{text = 'جلب النسخه الاحتياطيه ⌔',type = 'text'},
-},
-{
-{text = 'اضف رد عام ⌔',type = 'text'},{text = 'حذف رد عام ⌔', type = 'text'},
-},
-{
-{text = 'الردود العامه ⌔',type = 'text'},{text = 'مسح الردود العامه ⌔', type = 'text'},
-},
-{
-{text = 'تحديث الملفات ⌔',type = 'text'},{text = 'تحديث السورس ⌔', type = 'text'},
-},
-{
-{text = 'الغاء الامر ⌔',type = 'text'},
-},
-}
-}
-return LuaTele.sendText(msg_chat_id,msg_id,'♡︙مرحبا عزيزي المطور \n♡︙انت المطور الاساسي هنا \n♡︙اليك ازرار سورس ميلانو \n♡︙تستطيع التحكم بكل الاوامر فقط اضغط على الامر الذي تريد تنفيذه ', 'md', false, false, false, false, reply_markup)
-end
-end
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹  السورس  ›',type = 'text'},{text = '‹  اسم البوت  ›', type = 'text'},},{{text = '‹  المطورين  ›',type = 'text'},{text = '‹  الاحصائيات  ›',type = 'text'},},{{text = '‹  الاذاعة  ›',type = 'text'},{text = '‹  العام  ›', type = 'text'},},{{text = '‹  الاشتراك الاجباري  ›',type = 'text'},{text = '‹  التفعيل والتعطيل  ›',type = 'text'},},{{text = '‹  ردود الخاص  ›',type = 'text'},},}}
+return LuaTele.sendText(msg_chat_id,msg_id,'᥀︙ اهلاً بك عزيزي ‹ المطور ›\n᥀︙ اليك الازرار الخاصة بسورس فروكس', 'md', false, false, false, false, reply_markup) end end
+if text == '‹  ردود الخاص  ›' and msg.DevelopersAS then
+Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
+local Raumo = '᥀︙ اهلا بك في قسم ‹ ردود الخاص ›\n᥀︙ اضغط على الامر الذي تريد تنفيذه'
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹ جلب رد الخاص ›',type = 'text'},},{{text = '‹ حذف رد الخاص ›',type = 'text'},{text = '‹ تغيير رد الخاص ›',type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
+return LuaTele.sendText(msg_chat_id,msg_id, Raumo, 'md', false, false, false, false, reply_markup) end
+if text == '‹  السورس  ›' and msg.DevelopersAS then
+Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
+local Raumo = '᥀︙ اهلا بك في قسم ‹ السورس ›\n᥀︙ اضغط على الامر الذي تريد تنفيذه'
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹ تحديث الملفات ›',type = 'text'},{text = '‹ تحديث السورس ›', type = 'text'},},{{text = '‹ مبرمج السورس ›', type = 'text'},},{{text = '‹ تحديثات السورس ›',type = 'text'},{text = '‹ قناة السورس ›',type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
+return LuaTele.sendText(msg_chat_id,msg_id, Raumo, 'md', false, false, false, false, reply_markup) end
+if text == '‹  اسم البوت  ›' and msg.DevelopersAS then
+Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
+local Raumo = '᥀︙ اهلا بك في قسم ‹ اسم البوت ›\n᥀︙ اضغط على الامر الذي تريد تنفيذه'
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{
+{text = '‹ اسم البوت ›', type = 'text'},},{{text = '‹ حذف الاسم ›',type = 'text'},{text = '‹ تغيير الاسم ›',type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
+return LuaTele.sendText(msg_chat_id,msg_id, Raumo, 'md', false, false, false, false, reply_markup) end
+if text == '‹  الاذاعة  ›' and msg.DevelopersAS then
+Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
+local Raumo = '᥀︙ اهلا بك في قسم ‹ الاذاعة ›\n᥀︙ اضغط على الامر الذي تريد تنفيذه'
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹ اذاعة للمجموعات ›',type = 'text'},{text = '‹ اذاعة للخاص ›', type = 'text'},},{{text = '‹ اذاعة بالتثبيت ›', type = 'text'},},{{text = '‹ اذاعة توجيه للمجموعات ›',type = 'text'},{text = '‹ اذاعة توجيه للخاص ›',type = 'text'},},{{text = '‹ الغاء الامر ›',type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
+return LuaTele.sendText(msg_chat_id,msg_id, Raumo, 'md', false, false, false, false, reply_markup) end
+if text == '‹  العام  ›' and msg.DevelopersAS then
+Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
+local Raumo = '᥀︙ اهلا بك في قسم ‹ العام ›\n᥀︙ اضغط على الامر الذي تريد تنفيذه'
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹ حذف رد عام ›',type = 'text'},{text = '‹ اضف رد عام ›', type = 'text'},},{{text = '‹ حذف ردود العام ›',type = 'text'},{text = '‹ ردود العام ›',type = 'text'},},{{text = '‹ حذف المكتومين عام ›',type = 'text'},{text = '‹ المكتومين عام ›',type = 'text'},},{{text = '‹ حذف المحظورين عام ›',type = 'text'},{text = '‹ المحظورين عام ›',type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
+return LuaTele.sendText(msg_chat_id,msg_id, Raumo, 'md', false, false, false, false, reply_markup) end
+if text == '‹  المطورين  ›' and msg.DevelopersAS then
+Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
+local Raumo = '᥀︙ اهلا بك في قسم ‹ المطورين ›\n᥀︙ اضغط على الامر الذي تريد تنفيذه'
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹ حذف الاساسيين ›',type = 'text'},{text = '‹ الاساسيين ›', type = 'text'},},{{text = '‹ حذف الثانويين ›',type = 'text'},{text = '‹ الثانويين ›', type = 'text'},},{{text = '‹ حذف المطورين ›',type = 'text'},{text = '‹ المطورين ›',type = 'text'},},{{text = '‹ تغيير المطور الاساسي ›',type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
+return LuaTele.sendText(msg_chat_id,msg_id, Raumo, 'md', false, false, false, false, reply_markup) end
+if text == '‹  الاحصائيات  ›' and msg.DevelopersAS then
+Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
+local Raumo = '᥀︙ اهلا بك في قسم ‹ الاحصائيات ›\n᥀︙ اضغط على الامر الذي تريد تنفيذه'
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹ الاحصائيات ›',type = 'text'},},{{text = '‹ تنظيف المجموعات ›',type = 'text'},{text = '‹ تنظيف المشتركين ›',type = 'text'},},{{text = '‹ جلب النسخة الاحتياطية ›',type = 'text'},},{{text = '‹ جلب نسخة الردود ›',type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
+return LuaTele.sendText(msg_chat_id,msg_id, Raumo, 'md', false, false, false, false, reply_markup) end
+if text == '‹  الاشتراك الاجباري  ›' and msg.DevelopersAS then
+Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
+local Raumo = '᥀︙ اهلا بك في قسم ‹ الاشتراك الاجباري ›\n᥀︙ اضغط على الامر الذي تريد تنفيذه'
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹ حذف كليشة الاشتراك ›',type = 'text'},{text = '‹ تغير كليشة الاشتراك ›',type = 'text'},},{{text = '‹ الاشتراك الاجباري ›',type = 'text'},},{{text = '‹ تعطيل الاشتراك الاجباري ›',type = 'text'},{text = '‹ تفعيل الاشتراك الاجباري ›',type = 'text'},},{{text = '‹ تغيير الاشتراك الاجباري ›',type = 'text'},},{{text = '‹ حذف اسم القناة ›',type = 'text'},{text = '‹ تغير اسم القناة ›',type = 'text'},},{{text = '‹ الغاء الامر ›',type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
+return LuaTele.sendText(msg_chat_id,msg_id, Raumo, 'md', false, false, false, false, reply_markup) end
+if text == '‹  التفعيل والتعطيل  ›' and msg.DevelopersAS then
+Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
+local Raumo = '᥀︙ اهلا بك في قسم ‹ التفعيل والتعطيل ›\n᥀︙ اضغط على الامر الذي تريد تنفيذه'
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹ تعطيل التواصل ›',type = 'text'},{text = '‹ تفعيل التواصل ›', type = 'text'},},{{text = '‹ تعطيل الاذاعة ›',type = 'text'},{text = '‹ تفعيل الاذاعة ›',type = 'text'},},{{text = '‹ تعطيل المغادرة ›',type = 'text'},{text = '‹ تفعيل المغادرة ›',type = 'text'},},{{text = '‹ تعطيل البوت الخدمي ›',type = 'text'},{text = '‹ تفعيل البوت الخدمي ›',type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
+return LuaTele.sendText(msg_chat_id,msg_id, Raumo, 'md', false, false, false, false, reply_markup) end
+-- Raumo --
 
 if text == 'تنظيف المشتركين ⌔' then
 if not msg.ControllerBot then 
