@@ -8915,25 +8915,24 @@ return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙تم مسح الرابط ","md
 end
 if text == "الرابط" then
 if not Redis:get(itsRaumo.."Raumo:Status:Link"..msg_chat_id) then
-return LuaTele.sendText(msg_chat_id,msg_id,"⌔︙تم تعطيل جلب الرابط من قبل الادمنيه","md",true)
+return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙تم تعطيل جلب الرابط من قبل الادمنيه","md",true)
 end 
-local reply_markup = LuaTele.replyMarkup{ 
-type = 'inline',
-data = { 
-{ 
-{ text = '‹ نص ›', data = msg.sender.user_id..'/LinKTexT' },{ text = '‹ انلاين ›', data = msg.sender.user_id..'/LinKOnla' },
- },
- { 
-{ text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr' }
- },
- { 
-{ text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/wwttw' }, 
- },
- }
- }
- return LuaTele.sendText(msg_chat_id,msg_id,'*⌔︙اختر نوع الرابط الذي تريده*',"md",false, false, false, false, reply_markup)
+local Get_Chat = LuaTele.getChat(msg_chat_id)
+local GetLink = Redis:get(itsRaumo.."Raumo:Group:Link"..msg_chat_id) 
+if GetLink then
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
+{{text =Get_Chat.title, url = GetLink}, },}}
+return LuaTele.sendText(msg_chat_id, msg_id, "᥀︙ Link Group : \n["..Get_Chat.title.. ']('..GetLink..')', 'md', true, false, false, false, reply_markup)
+else
+local LinkGroup = LuaTele.generateChatInviteLink(msg_chat_id,'okshahum',tonumber(msg.date+86400),0,true)
+if LinkGroup.code == 3 then
+return LuaTele.sendText(msg_chat_id,msg_id,"᥀︙لا استطيع جلب الرابط بسبب ليس لدي صلاحيه دعوه مستخدمين من خلال الرابط ","md",true)
 end
--- Raumo -
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
+{{text = Get_Chat.title, url = LinkGroup.invite_link},},}}
+return LuaTele.sendText(msg_chat_id, msg_id, "᥀︙ Link Group : \n('..LinkGroup.invite_link..')', 'md', true, false, false, false, reply_markup)
+end
+end
 
 if text == "ضع ترحيب" or text == "وضع ترحيب" then  
 if not msg.Addictive then
@@ -13619,54 +13618,6 @@ if Text == '/leftz@' then
 LuaTele.editMessageText(ChatId,Msg_id,"*᥀︙ ارسل الكلمه لزخرفتها عربي او انجلش*","md",true) 
 Redis:set(itsRaumo.."Raumo:zhrfa"..IdUser,"sendzh") 
 end 
-if Text and Text:match('(%d+)/LinKTexT') then
-local UserId = Text:match('(%d+)/LinKTexT')
-if tonumber(IdUser) == tonumber(UserId) then 
-local Get_Chat = LuaTele.getChat(data.chat_id) 
-local GetLink = Redis:get(itsRaumo.."Raumo:Group:Link"..data.chat_id) 
-if GetLink then
-local Text = '⌔︙Link Group ↬ ⤈\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\nᅠ❨ '..GetLink..' ❩ '
-keyboard = {} 
-keyboard.inline_keyboard = {{{text= Get_Chat.title, url=GetLink}}}
-local msg_id = Msg_id/2097152/0.5
-return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatId..'&message_id='..msg_id..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-else
-local LinkGroup = json:decode(https.request('https://api.telegram.org/bot'..Token..'/exportChatInviteLink?chat_id='..data.chat_id))
-if LinkGroup.ok == true then
-local Text = '⌔︙Link Group ↬ ⤈\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\nᅠ❨ '..LinkGroup.result..' ❩ '
-keyboard = {} 
-keyboard.inline_keyboard = {{{text= Get_Chat.title,url=LinkGroup.result}}}
-local msg_id = Msg_id/2097152/0.5
-return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatId..'&message_id='..msg_id..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
-end
-
-
-if Text and Text:match('(%d+)/LinKOnla') then
-local UserId = Text:match('(%d+)/LinKOnla')
-if tonumber(IdUser) == tonumber(UserId) then 
-local Get_Chat = LuaTele.getChat(data.chat_id) 
-local GetLink = Redis:get(itsRaumo.."Raumo:Group:Link"..data.chat_id) 
-if GetLink then
-local Text = '⌔︙Link Group ↬ ⤈\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\nᅠᅠᅠᅠ❨ ['..Get_Chat.title.. ']('..GetLink..') ❩ '
-keyboard = {} 
-keyboard.inline_keyboard = {{{text= Get_Chat.title, url=..LinkGroup.invite_link..}}}
-local msg_id = Msg_id/2097152/0.5
-return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatId..'&message_id='..msg_id..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-else
-local LinkGroup = json:decode(https.request('https://api.telegram.org/bot'..Token..'/exportChatInviteLink?chat_id='..data.chat_id))
-if LinkGroup.ok == true then
-local Text = '⌔︙Link Group ↬ ⤈\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\nᅠᅠᅠᅠ❨ ['..Get_Chat.title.. ']('..LinkGroup.result..') ❩ '
-keyboard = {} 
-keyboard.inline_keyboard = {{{text= Get_Chat.title,url= ..LinkGroup.invite_link..}}}
-local msg_id = Msg_id/2097152/0.5
-return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatId..'&message_id='..msg_id..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
-end
 if Text and Text:match('/Mahibes(%d+)') then
 local GetMahibes = Text:match('/Mahibes(%d+)') 
 local NumMahibes = math.random(1,6)
