@@ -8422,45 +8422,23 @@ keyboard.inline_keyboard = {{{text = '‹ Delete Bot ›', url = "https://t.me/R
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/R3J3BOT&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-
 local Text =[[
-
-
-
 - 𝗐ᴇʟᴄᴏ𝗆𝖾 ᴛᴏ 𝗌𝗈𝗎𝗋𝖼𝖾 Forx .
-
-
-
 ]]
-
 keyboard = {} 
-
 keyboard.inline_keyboard = {
-
 {
-
 {text = '❲Source Channel❳', url = "https://t.me/wwttw"},{text = '❲Exp Source❳', url = "https://t.me/FoRx_TeAm"}
-
 },
-
 {
-
 {text = '❲Developer❳', url = "https://t.me/NNlNNN"}
-
 },
-
 {
-
 {text = '❲Tws FoRx❳', url = "https://t.me/Fotx7bot"}
-
 },
-
 }
-
 local msg_id = msg.id/2097152/0.5
-
-https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/FoRx_TeAm/4&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-
+https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/FoRx_TeAm/18&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == 'الاوامر' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n᥀︙هذا الامر للادمنية واعلى فقط',"md",true)  end
