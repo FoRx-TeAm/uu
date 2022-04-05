@@ -2890,48 +2890,34 @@ return LuaTele.sendText(msg_chat_id,msg_id,
 '\n᥀︙تفاعله : '..TotalMsgT..
 '*',"md",true) 
 end
-if text == 'رتبتي' then
-local ban = LuaTele.getUser(msg.sender.user_id)
-local news = 'ᯓ 𝑺𝒕𝒂𝒔𝒕 هي : '..msg.Name_Controller
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
-{{text =news,url = "https://t.me/"..ban.username..""}, },}}
-return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
-end
-if text == "نبذتي" or text == "البايو" then
-local ban = LuaTele.getUser(msg.sender.user_id)
-local bio = 'ʙɪᴏ : '..getbio(msg.sender.user_id)
-local again = 'هذا هوه البايو ᥀︙ '
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
-{
-{text = bio, url = "https://t.me/"..UserInfousername..""}, 
-},
-}
-}
-return LuaTele.sendText(msg_chat_id, msg_id, again, 'md', false, false, false, false, reply_markup)
-end
-
-
-if text == 'ايديي' then
-return LuaTele.sendText(msg_chat_id,msg_id,'\nايديك -› '..msg.sender.user_id,"md",true)  
-end
-if text == "اسمي"  then
-local ban = LuaTele.getUser(msg.sender.user_id)
-if ban.first_name then
-news = " "..ban.first_name.." "
+if text == 'نبذتي' or text == 'بايو' then
+if not msg.Managers then return LuaTele.sendText(msg_chat_id,msg_id,'\n᥀︙ هذه الميزة للادمنية واعلى فقط',"md",true)  end
+local InfoUser = LuaTele.getUserFullInfo(msg.sender.user_id)
+if InfoUser.bio then
+Bio = InfoUser.bio
 else
-news = " لا يوجد"
+Bio = 'لا يوجد'
 end
-return LuaTele.sendText(msg_chat_id,msg_id,'\n᥀︙اسمك الأول : '..ban.first_name,"md",true)
-end
-if text == "معرفي" or text == "يوزري" then
-local ban = LuaTele.getUser(msg.sender.user_id)
-if ban.username then
-banusername = '[@'..UserName..']'
+return LuaTele.sendText(msg_chat_id,msg_id,'\n᥀︙ نبذتك ↫ ❨ '..Bio..' ❩',"md",true)  end
+if text == 'اسمي' then
+if not msg.Managers then return LuaTele.sendText(msg_chat_id,msg_id,'\n᥀︙ هذه الميزة للادمنية واعلى فقط',"md",true)  end
+local UserInfo = LuaTele.getUser(msg.sender.user_id) 
+if UserInfo.first_name then
+Name = UserInfo.first_name
 else
-banusername = 'لا يوجد'
+Name = ''
 end
-return LuaTele.sendText(msg_chat_id,msg_id,'\nᯓ𝑼𝒔𝒆𝒓𝒏𝒂𝒎𝒆 هذا : @'..UserName,"md",true)
+return LuaTele.sendText(msg_chat_id,msg_id,'\n᥀︙ اسمك ↫ ❨ '..Name..' ❩ ',"md",true)  end
+if text == 'رتبتي' then return LuaTele.sendText(msg_chat_id,msg_id,'\n᥀︙ رتبتك ↫ ❨ '..msg.Name_Controller..' ❩',"md",true)  end
+if text == 'ايديي' then return LuaTele.sendText(msg_chat_id,msg_id,'\n᥀︙ ايديك ↫ ❨ '..msg.sender.user_id..' ❩',"md",true)  end
+if text == 'معرفي' then
+local UserInfo = LuaTele.getUser(msg.sender.user_id)
+if UserInfo.username then
+UserInfousername = '@'..UserInfo.username..''
+else
+UserInfousername = 'لا يوجد'
 end
+return LuaTele.sendText(msg_chat_id,msg_id,'\n᥀︙ معرفك ↫ ❨ '..UserInfousername..' ❩',"md",true)  end
 if text == 'معلوماتي' or text == 'موقعي' then
 local UserInfo = LuaTele.getUser(msg.sender.user_id)
 local StatusMember = LuaTele.getChatMember(msg_chat_id,msg.sender.user_id).status.luatele
