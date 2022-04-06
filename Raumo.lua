@@ -10912,9 +10912,7 @@ LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. ChatId .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(ban_ns).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
 return LuaTele.sendText(ChatId,Msg_id,'*᥀︙ لا توجد صوره ف حسابك*',"md",true) 
-end
-end
-end
+end
 if Text and Text:match('(%d+)/ban89') then
 local UserId = Text:match('(%d+)/ban89')
 if tonumber(IdUser) == tonumber(UserId) then
@@ -10932,9 +10930,7 @@ keyboard.inline_keyboard = {
 https.request("https://api.telegram.org/bot"..Token.."/editMessageMedia?chat_id="..ChatId.."&reply_to_message_id=0&media="..ban.."&caption=".. URL.escape(ban_ns).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
 return LuaTele.sendText(ChatId,Msg_id,'*᥀︙ لا توجد صوره ف حسابك*',"md",true) 
-end
-end
-end
+end
 if Text and Text:match('(%d+)/ban1') then
 local UserId = Text:match('(%d+)/ban1')
 if tonumber(IdUser) == tonumber(UserId) then
@@ -10955,9 +10951,7 @@ LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. ChatId .. "&photo="..photo.photos[2].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(ban_ns).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
 return LuaTele.sendText(ChatId,Msg_id,'*᥀︙ لا توجد صوره ف حسابك*',"md",true) 
-end
-end
-end
+end
 if Text and Text:match('(%d+)/ban2') then
 local UserId = Text:match('(%d+)/ban2')
 if tonumber(IdUser) == tonumber(UserId) then
@@ -10977,9 +10971,7 @@ keyboard.inline_keyboard = {
 LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. ChatId .. "&photo="..photo.photos[3].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(ban_ns).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-return LuaTele.sendText(ChatId,Msg_id,'*᥀︙ لا توجد صوره ف حسابك*',"md",true) 
-end
-end
+return LuaTele.sendText(ChatId,Msg_id,'*᥀︙ لا توجد صوره ف حسابك*',"md",true) 
 end
 if Text and Text:match('(%d+)/ban3') then
 local UserId = Text:match('(%d+)/ban3')
@@ -11001,9 +10993,7 @@ LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. ChatId .. "&photo="..photo.photos[4].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(ban_ns).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
 return LuaTele.sendText(ChatId,Msg_id,'*᥀︙ لا توجد صوره ف حسابك*',"md",true) 
-end
-end
-end
+end
 if Text and Text:match('(%d+)/ban4') then
 local UserId = Text:match('(%d+)/ban4')
 if tonumber(IdUser) == tonumber(UserId) then
@@ -11024,9 +11014,7 @@ LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. ChatId .. "&photo="..photo.photos[5].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(ban_ns).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
 return LuaTele.sendText(ChatId,Msg_id,'*᥀︙ لا توجد صوره ف حسابك*',"md",true) 
-end
-end
-end
+end
 if Text and Text:match('(%d+)/ban5') then
 local UserId = Text:match('(%d+)/ban5')
 if tonumber(IdUser) == tonumber(UserId) then
@@ -11046,9 +11034,7 @@ keyboard.inline_keyboard = {
 LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. ChatId .. "&photo="..photo.photos[6].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(ban_ns).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-return LuaTele.sendText(ChatId,Msg_id,'*᥀︙ لا توجد صوره ف حسابك*',"md",true) 
-end
-end
+return LuaTele.sendText(ChatId,Msg_id,'*᥀︙ لا توجد صوره ف حسابك*',"md",true) 
 end
 if Text and Text:match('(%d+)/ban6') then
 local UserId = Text:match('(%d+)/ban6')
@@ -11070,7 +11056,6 @@ LuaTele.deleteMessages(ChatId,{[1]= Msg_id})
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. ChatId .. "&photo="..photo.photos[7].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(ban_ns).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
 return LuaTele.sendText(ChatId,Msg_id,'*᥀︙ لا توجد صوره ف حسابك*',"md",true) 
-end
 end
 if Text and Text:match('(%d+)/closerdControllerBot') then
 local UserId = Text:match('(%d+)/closerdControllerBot')
