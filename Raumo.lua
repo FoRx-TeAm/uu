@@ -10871,7 +10871,27 @@ end
 LuaTele.setChatMemberStatus(ChatId,UserId,'restricted',{1,1,1,1,1,1,1,1})
 return LuaTele.editMessageText(ChatId,Msg_id,"▽︙تم التحقق منك اجابتك صحيحه يمكنك الدردشه الان", 'md', false)
 end
-
+if Text and Text:match('(%d+)/unbanktmkid@(%d+)') then
+local listYt = {Text:match('(%d+)/unbanktmkid@(%d+)')}
+if tonumber(listYt[1]) == tonumber(IdUser) then
+Redis:srem(itsRaumo.."Raumo:SilentGroup:Group"..ChatId,listYt[2]) 
+Redis:srem(itsRaumo.."Raumo:BanGroup:Group"..ChatId,listYt[2]) 
+LuaTele.setChatMemberStatus(ChatId,listYt[2],'restricted',{1,1,1,1,1,1,1,1,1})
+LuaTele.setChatMemberStatus(ChatId,listYt[2],'restricted',{1,1,1,1,1,1,1,1})
+LuaTele.editMessageText(ChatId,Msg_id,"᥀︙تم رفع القيود عنه", 'md')
+end
+end
+
+if Text and Text:match('(%d+)/delamrredis') then
+local listYt = Text:match('(%d+)/delamrredis')
+if tonumber(listYt) == tonumber(IdUser) then
+Redis:del(itsRaumo.."Raumo:Redis:Id:Group"..ChatId..""..IdUser) 
+Redis:del(itsRaumo.."Raumo1:Set:Rd"..IdUser..":"..ChatId)
+Redis:del(itsRaumo.."Raumo:Set:Manager:rd"..IdUser..":"..ChatId)
+Redis:del(itsRaumo.."Raumo:Set:Rd"..IdUser..":"..ChatId)
+LuaTele.editMessageText(ChatId,Msg_id,"᥀︙تم الغاء الامر", 'md')
+end
+end
 
 if Text and Text:match('(%d+)/Song') then
 local UserId = Text:match('(%d+)/Song')
