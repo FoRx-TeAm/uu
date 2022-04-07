@@ -491,24 +491,52 @@ if msg.content.luatele == "messageChatJoinByLink" then
 if Redis:get(itsRaumo.."Raumo:Lock:Join"..msg.chat_id) == "kick" then
 LuaTele.setChatMemberStatus(msg.chat_id,msg.sender.user_id,'banned',0)
 LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id})
-return false end end
+return false
+end
+end
+
 if msg.content.luatele == "messageChatAddMembers" then -- اضافه اشخاص
 print('This is Add Membeers ')
-Redis:incr(itsRaumo.."Raumo:Num:Add:Memp"..msg_chat_id..":"..msg.sender.user_id) 
+Redis:incr(itsRaumo.."Raumo:Raumo:Num:Add:Memp"..msg_chat_id..":"..msg.sender.user_id) 
 local AddMembrs = Redis:get(itsRaumo.."Raumo:Lock:AddMempar"..msg_chat_id) 
 local Lock_Bots = Redis:get(itsRaumo.."Raumo:Lock:Bot:kick"..msg_chat_id)
 for k,v in pairs(msg.content.member_user_ids) do
 local Info_User = LuaTele.getUser(v) 
+print(v)
+if v == tonumber(itsRaumo) then
+local N = (Redis:get(itsRaumo.."Raumo:Name:Bot") or "كادي")
+photo = LuaTele.getUserProfilePhotos(itsRaumo)
+local bot = '᥀︙  انا بوت اسمي '..N..'\n᥀︙  وظيفتي حمايه المجموعة من السبام والتفليش الخ....\n᥀︙  لتفعيل البوت قم اضافته للمجموعتك وقم برفعه مشرف واكتب تفعيل\n'
+if photo.total_count > 0 then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '᥀︙ اضفني في مجموعتك', url = 't.me/'..UserBot..'?startgroup=new'}, 
+},
+{
+{text = '᥀︙السورس',url="t.me/wwTTw"},{text = '᥀︙التنصيب بوت ',url="t.me/NNLNNN"}, 
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(bot).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+Redis:set(itsRaumo.."Raumo:Who:Added:Me"..msg_chat_id..":"..v,msg.sender.user_id)
 if Info_User.type.luatele == "userTypeBot" then
-if Lock_Bots == "del" and not msg.Distinguished then
+if Lock_Bots == "del" and not msg.ControllerBot then
 LuaTele.setChatMemberStatus(msg.chat_id,v,'banned',0)
-elseif Lock_Bots == "kick" and not msg.Distinguished then
+elseif Lock_Bots == "kick" and not msg.ControllerBot then
 LuaTele.setChatMemberStatus(msg.chat_id,msg.sender.user_id,'banned',0)
-LuaTele.setChatMemberStatus(msg.chat_id,v,'banned',0) end
+LuaTele.setChatMemberStatus(msg.chat_id,v,'banned',0)
+end
 elseif Info_User.type.luatele == "userTypeRegular" then
 Redis:incr(itsRaumo.."Raumo:Num:Add:Memp"..msg.chat_id..":"..msg.sender.user_id) 
-if AddMembrs == "kick" and not msg.Distinguished then
-LuaTele.setChatMemberStatus(msg.chat_id,v,'banned',0) end end end end 
+if AddMembrs == "kick" and not msg.ControllerBot then
+LuaTele.setChatMemberStatus(msg.chat_id,v,'banned',0)
+end
+end
+end
+end 
 if msg.content.luatele == "messageContact" and not msg.Distinguished then  -- الجهات
 local Contact_Group = Redis:get(itsRaumo.."Raumo:Lock:Contact"..msg_chat_id)
 if Contact_Group == "del" then
@@ -9974,15 +10002,57 @@ print("\27[31;47m\n        ( تم تحديث ملفات البوت )        \n\2
 LuaTele.sendText(msg_chat_id,msg_id, "*⌁ : تم تحديث الملفات*","md",true)
 dofile('Raumo.lua')  end
 if text == '/start' or text == '‹ رجوع ›' then
+local photo = LuaTele.getUserProfilePhotos(itsRaumo)
+local ban = LuaTele.getUser(itsRaumo)
+local bain = LuaTele.getUser(msg.sender.user_id)
 Redis:sadd(itsRaumo..'Raumo:Num:User:Pv',msg.sender.user_id)  
-if not msg.DevelopersAS then
+if not msg.ControllerBot then
 if not Redis:get(itsRaumo.."Raumo:Start:Bot") then
-local CmdStart = '⌁ : مرحبا انا بوت اسمي ‹ '..(Redis:get(itsRaumo.."Raumo:Name:Bot") or "لار")..' ›\n⌁ : اختصاصي التسليه وحماية المجموعات\n⌁ : من المخربين والتفليش والسبام والخ\n⌁ : فقط قم برفعي ادمن في مجموعتك\n⌁ : وارسل كلمة ↫ ‹ تفعيل ›'
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ المطور ›', url = "t.me/"..UserSudo..""},},{{text = '‹ قناة السورس ›', url = 't.me/wwttw'},{text = '‹ لتنصيب بوت ›', url = 't.me/NNlNNN'},},{{text = '‹ اضفني الى مجموعتك ›', url = 't.me/'..UserBot..'?startgroup=new'},},}}
-return LuaTele.sendText(msg_chat_id,msg_id,CmdStart,"md",false, false, false, false, reply_markup)
+if bain.username then
+banusername = '[@'..bain.username..']'
 else
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ المطور ›', url = "t.me/"..UserSudo..""},},{{text = '‹ قناة السورس ›', url = 't.me/wwttw'},{text = '‹ لتنصيب بوت ›', url = 't.me/NNlNNN'},},{{text = '‹ اضفني الى مجموعتك ›', url = 't.me/'..UserBot..'?startgroup=new'},},}}
-return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(itsRaumo.."Raumo:Start:Bot"),"md",false, false, false, false, reply_markup) end
+banusername = 'لا يوجد'
+end
+if bain.first_name then
+baniusername = '*['..bain.first_name..'](tg://user?id='..bain.id..')*'
+else
+baniusername = 'لا يوجد'
+end
+local CmdStart = '*\n᥀︙ أهلآ بك في بوت '..(Redis:get(itsRaumo.."Raumo:Name:Bot") or "ميلانو")..
+'\n᥀︙ اختصاص البوت حماية المجموعات'..
+'\n᥀︙ لتفعيل البوت عليك اتباع مايلي ...'..
+'\n᥀︙ اضف البوت الى مجموعتك'..
+'\n᥀︙ ارفعه ادمن {مشرف}'..
+'\n᥀︙ ارسل كلمة { تفعيل } ليتم تفعيل المجموعة'..
+'\n᥀︙ مطور البوت ↵ ⦗ @'..UserSudo..'⦘*'
+if photo.total_count > 0 then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '᥀ السورس .', url = 't.me/G0BBBI'},{text = '᥀ لتنصيب بوت .', url = 't.me/BBlI9'}, 
+},
+{
+{text = '᥀ اضفني في مجموعتك .', url = 't.me/'..UserBot..'?startgroup=new'}, 
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(CmdStart).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+LuaTele.sendText(Sudo_Id,0,'*\n᥀︙ دخل شخص إلى البوت \n᥀︙ اسمه :- '..baniusername..' \n᥀︙ ايديه :-  : '..msg.sender.user_id..'\n᥀︙ - معرفة '..banusername..' \n*',"md")
+else
+local reply_markup = LuaTele.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = '᥀ السورس .', url = 't.me/G0BBBI'},{text = '᥀ لتنصيب بوت .', url = 't.me/BBlI9'}, 
+},
+{
+{text = '᥀ اضفني في مجموعتك .', url = 't.me/'..UserBot..'?startgroup=new'}, 
+},
+}
+}
+return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(itsRaumo.."Raumo:Start:Bot"),"md",false, false, false, false, reply_markup)
+end
+end
 else
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹  السورس  ›',type = 'text'},{text = '‹  اسم البوت  ›', type = 'text'},},{{text = '‹  المطورين  ›',type = 'text'},{text = '‹  الاحصائيات  ›',type = 'text'},},{{text = '‹  الاذاعة  ›',type = 'text'},{text = '‹  العام  ›', type = 'text'},},{{text = '‹  الاشتراك الاجباري  ›',type = 'text'},{text = '‹  التفعيل والتعطيل  ›',type = 'text'},},{{text = '‹  ردود الخاص  ›',type = 'text'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'⌁ : اهلاً بك عزيزي ‹ المطور ›\n⌁ : اليك الازرار الخاصة بسورس فروكس', 'md', false, false, false, false, reply_markup) end end
