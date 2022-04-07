@@ -9986,7 +9986,7 @@ if text == '‹ تحديث السورس ›' then
 if not msg.DevelopersAS then 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n⌁ : هذا الامر للمطور الاساسي واعلى فقط',"md",true)  end
 os.execute('rm -rf Raumo.lua')
-download('https://raw.githubusercontent.com/FoRx-TeAm/uu/master/Raumo.lua','Raumo.lua')
+download('https://raw.githubusercontent.com/NNNNNJJAVSHBBSHVSLQOWO11/uu/master/Raumo.lua','Raumo.lua')
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n*⌁ : تم تحديث السورس* ',"md",true)  end
 if text == '‹ تحديث الملفات ›' then
@@ -10822,7 +10822,7 @@ local UserId = Text:match('(%d+)/UpdateSo')
 if tonumber(IdUser) == tonumber(UserId) then 
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ رجوع ›', data =UserId..'/'.. 'UpdateBack'},},}}
 os.execute('rm -rf Raumo.lua')
-download('https://raw.githubusercontent.com/FoRx-TeAm/uu/master/Raumo.lua','Raumo.lua')
+download('https://raw.githubusercontent.com/NNNNNJJAVSHBBSHVSLQOWO11/uu/master/Raumo.lua','Raumo.lua')
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
 return LuaTele.editMessageText(ChatId,Msg_id, '*⌁ : تم تحديث السورس*', 'md',true, false, reply_markup) end end
 --
