@@ -8624,7 +8624,7 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, u
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
-data = {{{text = '⌁ : العاب السورس ', data = IdUser..'/help6'},},{{text = '⌁ : العاب المتطورة ', data = IdUser..'/degm'}, },{{text = '- اخفاء الامر ', data =IdUser..'/'.. 'delAmr'}},{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/G0BBBI'}, },}}
+data = {{{text = '⌁ : العاب السورس ', data = IdUser..'/help6'},},{{text = '⌁ : العاب المتطورة ', data = IdUser..'/degm'}, },{{text = '- اخفاء الامر ', data =IdUser..'/'.. 'delAmr'}},{{text = '‹ Sourec F᥆Ꭱx ›', url = 't.me/wwTTw'}, },}}
 return LuaTele.sendText(msg_chat_id,msg_id,'⌁ : عليك استخدام اوامر التحكم بالقوائم',"md",false, false, false, false, reply_markup)end
 if text == 'تحديث' or text == 'تحديث السورس' then
 if not msg.DevelopersAS then 
@@ -10029,7 +10029,7 @@ if photo.total_count > 0 then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '᥀ السورس .', url = 't.me/G0BBBI'},{text = '᥀ لتنصيب بوت .', url = 't.me/BBlI9'}, 
+{text = '᥀ السورس .', url = 't.me/wwTTw'},{text = '᥀ لتنصيب بوت .', url = 't.me/NNLNNN'}, 
 },
 {
 {text = '᥀ اضفني في مجموعتك .', url = 't.me/'..UserBot..'?startgroup=new'}, 
@@ -10043,7 +10043,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '᥀ السورس .', url = 't.me/G0BBBI'},{text = '᥀ لتنصيب بوت .', url = 't.me/BBlI9'}, 
+{text = '᥀ السورس .', url = 't.me/wwTTw'},{text = '᥀ لتنصيب بوت .', url = 't.me/NNLNNN'}, 
 },
 {
 {text = '᥀ اضفني في مجموعتك .', url = 't.me/'..UserBot..'?startgroup=new'}, 
