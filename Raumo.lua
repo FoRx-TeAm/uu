@@ -1411,12 +1411,12 @@ local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/Forx1_Tame&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
 if text == '‹ مبرمج السورس ›' or text == 'مبرمج' or text == 'مبرمج السورس' or text == 'مطور السورس' or text == 'المبرمج' then
 local tt =[[
-⌔︰[مبرمج السورس](https://t.me/NNlNNN) .
+⌔︰[مبرمج السورس](https://t.me/lililiql) .
 ]]
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مبرمج السورس .', url = "https://t.me/NNlNNN"}},}
+keyboard.inline_keyboard = {{{text = '‹ مبرمج السورس .', url = "https://t.me/lililiql"}},}
 local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/NNlNNN&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/lililiql&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
 if text == '‹ تحديثات السورس ›' or text == 'قناة التحديثات' or text == 'تحديثات السورس' then
 local tt =[[
 ⌔︰[Exp Source](https://t.me/Forx1_Tame) .
