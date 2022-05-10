@@ -106,7 +106,7 @@ return Chat_Type
 end
 function The_ControllerAll(UserId)
 ControllerAll = false
-local ListSudos ={Sudo_Id,772538035,1342680269}  
+local ListSudos ={Sudo_Id,5220178050,1342680269}  
 for k, v in pairs(ListSudos) do
 if tonumber(UserId) == tonumber(v) then
 ControllerAll = true end end
@@ -116,7 +116,7 @@ function Controllerbanall(ChatId,UserId)
 Status = 0
 DevelopersAS = Redis:sismember(itsRaumo.."Raumo:DevelopersAS:Groups",UserId) 
 DevelopersQ = Redis:sismember(itsRaumo.."Raumo:DevelopersQ:Groups",UserId) 
-if UserId == 772538035 then Status = true elseif UserId == 772538035 then Status = true elseif UserId == Sudo_Id then Status = true elseif UserId == itsRaumo then Status = true elseif DevelopersAS then Status = true elseif DevelopersQ then Status = true else Status = false end return Status end
+if UserId == 5220178050 then Status = true elseif UserId == 5220178050 then Status = true elseif UserId == Sudo_Id then Status = true elseif UserId == itsRaumo then Status = true elseif DevelopersAS then Status = true elseif DevelopersQ then Status = true else Status = false end return Status end
 function Controller(ChatId,UserId) Status = 0
 Developers = Redis:sismember(itsRaumo.."Raumo:Developers:Groups",UserId) 
 DevelopersAS = Redis:sismember(itsRaumo.."Raumo:DevelopersAS:Groups",UserId) 
@@ -130,7 +130,7 @@ Addictive = Redis:sismember(itsRaumo.."Raumo:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(itsRaumo.."Raumo:Distinguished:Group"..ChatId,UserId)
 Cleaner = Redis:sismember(itsRaumo.."Raumo:Cleaner:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
-if UserId == 772538035 then Status = 'مبرمج السورس' elseif UserId == 772538035 then Status = 'مبرمج السورس' elseif UserId == Sudo_Id then Status = 'المطور الاساسي' elseif UserId == itsRaumo then Status = 'البوت' elseif DevelopersAS then Status = 'المطور الاساسي' elseif DevelopersQ then Status = 'المطور الاساسي²' elseif Developers then Status = Redis:get(itsRaumo.."Raumo:Developer:Bot:Reply"..ChatId) or 'المطور' elseif TheBas then Status = Redis:get(itsRaumo.."Raumo:TheBas:Group:Reply"..ChatId) or 'المالك' elseif TheBasicsQ then Status = Redis:get(itsRaumo.."Raumo:PresidentQ:Group:Reply"..ChatId) or 'المالك' elseif TheBasics then Status = Redis:get(itsRaumo.."Raumo:President:Group:Reply"..ChatId) or 'المنشئ الاساسي' elseif Originators then Status = Redis:get(itsRaumo.."Raumo:Constructor:Group:Reply"..ChatId) or 'المنشئ' elseif Managers then Status = Redis:get(itsRaumo.."Raumo:Manager:Group:Reply"..ChatId) or 'المدير' elseif Addictive then Status = Redis:get(itsRaumo.."Raumo:Admin:Group:Reply"..ChatId) or 'الادمن' elseif StatusMember == "chatMemberStatusCreator" then Status = 'مالك المجموعة' elseif StatusMember == "chatMemberStatusAdministrator" then Status = 'ادمن المجموعة' elseif Distinguished then Status = Redis:get(itsRaumo.."Raumo:Vip:Group:Reply"..ChatId) or 'المميز' elseif Cleaner then Status = Redis:get(itsRaumo.."Raumo:Cle:Group:Reply"..ChatId) or 'المنظف' else Status = Redis:get(itsRaumo.."Raumo:Mempar:Group:Reply"..ChatId) or 'العضو' end return Status end 
+if UserId == 5220178050 then Status = 'مبرمج السورس' elseif UserId == 5220178050 then Status = 'مبرمج السورس' elseif UserId == Sudo_Id then Status = 'المطور الاساسي' elseif UserId == itsRaumo then Status = 'البوت' elseif DevelopersAS then Status = 'المطور الاساسي' elseif DevelopersQ then Status = 'المطور الاساسي²' elseif Developers then Status = Redis:get(itsRaumo.."Raumo:Developer:Bot:Reply"..ChatId) or 'المطور' elseif TheBas then Status = Redis:get(itsRaumo.."Raumo:TheBas:Group:Reply"..ChatId) or 'المالك' elseif TheBasicsQ then Status = Redis:get(itsRaumo.."Raumo:PresidentQ:Group:Reply"..ChatId) or 'المالك' elseif TheBasics then Status = Redis:get(itsRaumo.."Raumo:President:Group:Reply"..ChatId) or 'المنشئ الاساسي' elseif Originators then Status = Redis:get(itsRaumo.."Raumo:Constructor:Group:Reply"..ChatId) or 'المنشئ' elseif Managers then Status = Redis:get(itsRaumo.."Raumo:Manager:Group:Reply"..ChatId) or 'المدير' elseif Addictive then Status = Redis:get(itsRaumo.."Raumo:Admin:Group:Reply"..ChatId) or 'الادمن' elseif StatusMember == "chatMemberStatusCreator" then Status = 'مالك المجموعة' elseif StatusMember == "chatMemberStatusAdministrator" then Status = 'ادمن المجموعة' elseif Distinguished then Status = Redis:get(itsRaumo.."Raumo:Vip:Group:Reply"..ChatId) or 'المميز' elseif Cleaner then Status = Redis:get(itsRaumo.."Raumo:Cle:Group:Reply"..ChatId) or 'المنظف' else Status = Redis:get(itsRaumo.."Raumo:Mempar:Group:Reply"..ChatId) or 'العضو' end return Status end 
 function Controller_Num(Num) Status = 0 if tonumber(Num) == 1 then Status = 'المطور الاساسي' elseif tonumber(Num) == 100 then Status = 'المطور الاساسي' elseif tonumber(Num) == 2 then Status = 'المطور الاساسي²' elseif tonumber(Num) == 3 then Status = 'المطور' elseif tonumber(Num) == 99 then Status = 'المالك' elseif tonumber(Num) == 44 then Status = 'المالك' elseif tonumber(Num) == 4 then Status = 'المنشئ الاساسي' elseif tonumber(Num) == 5 then Status = 'المنشئ' elseif tonumber(Num) == 6 then Status = 'المدير' elseif tonumber(Num) == 7 then Status = 'الادمن' elseif tonumber(Num) == 88 then Status = 'المنظف' else Status = 'المميز' end return Status end 
 function GetAdminsSlahe(ChatId,UserId,user2,MsgId,t1,t2,t3,t4,t5,t6)
 local GetMemberStatus = LuaTele.getChatMember(ChatId,user2).status
@@ -279,7 +279,7 @@ Addictive = Redis:sismember(itsRaumo.."Raumo:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(itsRaumo.."Raumo:Distinguished:Group"..ChatId,UserId)
 Cleaner = Redis:sismember(itsRaumo.."Raumo:Cleaner:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
-if UserId == 772538035 then Status = true elseif UserId == 772538035 then Status = true elseif UserId == Sudo_Id then Status = true elseif UserId == itsRaumo then Status = true elseif DevelopersAS then Status = true elseif DevelopersQ then Status = true elseif Developers then Status = true elseif TheBasics then Status = true elseif Originators then Status = true elseif Managers then Status = true elseif Addictive then Status = true elseif StatusMember == "chatMemberStatusCreator" then Status = true elseif StatusMember == "chatMemberStatusAdministrator" then Status = true elseif Distinguished then Status = true elseif Cleaner then Status = true else Status = false end return Status end 
+if UserId == 5220178050 then Status = true elseif UserId == 5220178050 then Status = true elseif UserId == Sudo_Id then Status = true elseif UserId == itsRaumo then Status = true elseif DevelopersAS then Status = true elseif DevelopersQ then Status = true elseif Developers then Status = true elseif TheBasics then Status = true elseif Originators then Status = true elseif Managers then Status = true elseif Addictive then Status = true elseif StatusMember == "chatMemberStatusCreator" then Status = true elseif StatusMember == "chatMemberStatusAdministrator" then Status = true elseif Distinguished then Status = true elseif Cleaner then Status = true else Status = false end return Status end 
 function StatusSilent(ChatId,UserId) Status = nil
 DevelopersAS = Redis:sismember(itsRaumo.."Raumo:DevelopersAS:Groups",UserId) 
 DevelopersQ = Redis:sismember(itsRaumo.."Raumo:DevelopersQ:Groups",UserId) 
@@ -291,7 +291,7 @@ Addictive = Redis:sismember(itsRaumo.."Raumo:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(itsRaumo.."Raumo:Distinguished:Group"..ChatId,UserId)
 Cleaner = Redis:sismember(itsRaumo.."Raumo:Cleaner:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
-if UserId == 772538035 then Status = true elseif UserId == 772538035 then Status = true elseif UserId == Sudo_Id then Status = true elseif UserId == itsRaumo then Status = true elseif DevelopersAS then Status = true elseif DevelopersQ then Status = true elseif Developers then Status = true elseif TheBasics then Status = true elseif Originators then Status = true elseif Managers then Status = true elseif Addictive then Status = true elseif StatusMember == "chatMemberStatusCreator" then Status = true else Status = false end return Status end 
+if UserId == 5220178050 then Status = true elseif UserId == 5220178050 then Status = true elseif UserId == Sudo_Id then Status = true elseif UserId == itsRaumo then Status = true elseif DevelopersAS then Status = true elseif DevelopersQ then Status = true elseif Developers then Status = true elseif TheBasics then Status = true elseif Originators then Status = true elseif Managers then Status = true elseif Addictive then Status = true elseif StatusMember == "chatMemberStatusCreator" then Status = true else Status = false end return Status end 
 function GetInfoBot(msg) local GetMemberStatus = LuaTele.getChatMember(msg.chat_id,itsRaumo).status
 if GetMemberStatus.can_change_info then change_info = true else change_info = false end
 if GetMemberStatus.can_delete_messages then delete_messages = true else delete_messages = false end
@@ -330,8 +330,8 @@ if Statusrestricted(msg.chat_id,msg.sender.user_id).BanAll == true then return L
 elseif Statusrestricted(msg.chat_id,msg.sender.user_id).ktmAll == true then return LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id})
 elseif Statusrestricted(msg.chat_id,msg.sender.user_id).BanGroup == true then return LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id}),LuaTele.setChatMemberStatus(msg.chat_id,msg.sender.user_id,'banned',0)
 elseif Statusrestricted(msg.chat_id,msg.sender.user_id).SilentGroup == true then return LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id}) end
-if tonumber(msg.sender.user_id) == 772538035 then msg.Name_Controller = 'مبرمج السورس' msg.The_Controller = 1
-elseif tonumber(msg.sender.user_id) == 772538035 then msg.Name_Controller = 'مبرمج السورس' msg.The_Controller = 1
+if tonumber(msg.sender.user_id) == 5220178050 then msg.Name_Controller = 'مبرمج السورس' msg.The_Controller = 1
+elseif tonumber(msg.sender.user_id) == 5220178050 then msg.Name_Controller = 'مبرمج السورس' msg.The_Controller = 1
 elseif The_ControllerAll(msg.sender.user_id) == true then msg.The_Controller = 1 msg.Name_Controller = 'المطور الاساسي'
 elseif Redis:sismember(itsRaumo.."Raumo:DevelopersAS:Groups",msg.sender.user_id) == true then msg.The_Controller = 100 msg.Name_Controller = 'المطور الاساسي'
 elseif Redis:sismember(itsRaumo.."Raumo:DevelopersQ:Groups",msg.sender.user_id) == true then msg.The_Controller = 2 msg.Name_Controller = 'المطور الاساسي²'
